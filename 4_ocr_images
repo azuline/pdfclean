@@ -8,8 +8,6 @@ resized_images="./work/resized_images"
 ocr_images="./work/ocr_images"
 mkdir -p "$ocr_images"
 
+echo "[STEP 4] OCRing pages"
 cp "$resized_images"/* "$ocr_images"
-for img in "$ocr_images"/*.png; do
-  echo "OCRing $img"
-  tesseract "$img" "${img%.png}" pdf
-done
+parallel --bar -j 4 tesseract "{}" "{}" pdf ::: "$ocr_images"/*.png

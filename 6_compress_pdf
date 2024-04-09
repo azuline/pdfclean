@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+merged_pdf="./work/merged_images/output.pdf"
+output_pdf="./output.pdf"
+
+echo "[STEP 6] Compressing PDF"
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="$output_pdf" "$merged_pdf"

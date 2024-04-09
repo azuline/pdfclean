@@ -499,7 +499,7 @@ trap "rm -f $tmpA1 $tmpA2; exit 1" 1 2 3 15
 
 # test for hdri enabled
 # NOTE: must put grep before trap using ERR in case it does not find a match
-# mdong: HARDCODED
+# HARDCODED
 hdri_on="1"
 
 # colorspace RGB and sRGB swapped between 6.7.5.5 and 6.7.6.7 
@@ -512,7 +512,7 @@ hdri_on="1"
 # so that results stay as in original script
 # The following was determined from various version tests using textcleaner
 # with IM 6.7.4.10, 6.7.6.10, 6.7.9.0
-# mdong: HARDCODED
+# HARDCODED
 setcspace=""
 
 # set up density

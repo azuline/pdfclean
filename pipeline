@@ -18,3 +18,4 @@ starting_step="${2:-1}"
 [ "$starting_step" -lt 4 ] && ./3_resize_images
 [ "$starting_step" -lt 5 ] && ./4_ocr_images
 [ "$starting_step" -lt 6 ] && ./5_merge_images
+[ "$starting_step" -lt 7 ] && ./6_compress_pdf
