@@ -18,4 +18,4 @@ input_pdf="$1"
 echo "[STEP 1] Converting PDF to images"
 total_pages="$(pdfinfo "$input_pdf" | grep Pages | awk '{print $2}')"
 echo "Counted $total_pages total pages"
-parallel --bar -j 16 pdftoppm -png -f "{}" -l "{}" -r 300 "$input_pdf" "$extracted_images/page" ::: $(seq 1 "$total_pages")
+parallel --quote --bar -j 16 pdftoppm -png -f "{}" -l "{}" -r 300 "$input_pdf" "$extracted_images/page" ::: $(seq 1 "$total_pages")

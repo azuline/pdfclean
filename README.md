@@ -7,3 +7,7 @@ Usage:
 ```
 ./pipeline <input PDF> [<resume from step>]
 ```
+
+TODO:
+
+- Environment variables for textcleaner args and book dimensions.

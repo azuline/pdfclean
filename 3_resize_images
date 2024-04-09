@@ -10,4 +10,4 @@ mkdir -p "$resized_images"
 
 echo "[STEP 3] Resizing pages"
 cp "$cleaned_images"/* "$resized_images"
-parallel --bar -j 16 mogrify -resize 2480x3508 -background white -gravity center -extent 2480x3508 ::: "$resized_images"/*.png
+parallel --bar -j 16 mogrify -resize 1590x2557 -background white -gravity center -extent 1590x2557 ::: "$resized_images"/*.png

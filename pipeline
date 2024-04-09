@@ -13,6 +13,7 @@ input_pdf="$1"
 # Set the starting step based on second argument; otherwise default 1.
 starting_step="${2:-1}"
 
+[ "$starting_step" -eq 1 ] && ./reset
 [ "$starting_step" -lt 2 ] && ./1_extract_images "$input_pdf"
 [ "$starting_step" -lt 3 ] && ./2_clean_images
 [ "$starting_step" -lt 4 ] && ./3_resize_images
