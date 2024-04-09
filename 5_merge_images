@@ -8,4 +8,4 @@ ocr_images="./work/ocr_images"
 output_pdf="./output.pdf"
 
 echo "Merging PDF pages..."
-pdfunite "$ocr_images"/* "$output_pdf"
+pdfunite "$ocr_images"/*.pdf "$output_pdf"

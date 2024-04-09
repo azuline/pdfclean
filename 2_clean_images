@@ -10,5 +10,5 @@ mkdir -p "$cleaned_images"
 
 for i in "$extracted_images"/*; do
     echo "Cleaning page $i"
-    ./textcleaner -g -e stretch -f 25 -o 10 -u -s 1 -T -p 10 "$i" "$cleaned_images/$(basename "$i")"
+    ./textcleaner -g -e stretch -f 25 -o 10 -u -s 1 "$i" "$cleaned_images/$(basename "$i")"
 done
