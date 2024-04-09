@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Step 5: Merge the cleaned PDFs back into a single file.
+
+ocr_images="./work/ocr_images"
+output_pdf="./output.pdf"
+
+echo "Merging PDF pages..."
+pdfunite "$ocr_images"/* "$output_pdf"

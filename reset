@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+extracted_images="./work/extracted_images"
+cleaned_images="./work/cleaned_images"
+resized_images="./work/resized_images"
+ocr_images="./work/ocr_images"
+
+rm "$extracted_images"/*
+rm "$cleaned_images"/*
+rm "$resized_images"/*
+rm "$ocr_images"/*

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Step 4: OCR all images with tesseract.
+
+resized_images="./work/resized_images"
+ocr_images="./work/ocr_images"
+mkdir -p "$ocr_images"
+
+for img in "$resized_images"/*.png; do
+  echo "OCRing $img"
+  tesseract "$img" "${img%.png}" pdf
+done

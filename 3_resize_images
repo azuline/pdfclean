@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Step 3: Resize all images to the same size.
+
+cleaned_images="./work/cleaned_images"
+resized_images="./work/resized_images"
+mkdir -p "$resized_images"
+
+cp "$cleaned_images"/* "$resized_images"
+mogrify -monitor -resize 2480x3508 -background white -gravity center -extent 2480x3508 "$resized_images"/*
