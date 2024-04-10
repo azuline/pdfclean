@@ -6,6 +6,7 @@ set -euo pipefail
 
 resized_images="./work/resized_images"
 quantized_images="./work/quantized_images"
+rm -rf "$quantized_images"
 mkdir -p "$quantized_images"
 
 echo "[STEP 4] Quantizing images"

@@ -6,8 +6,9 @@ set -euo pipefail
 
 quantized_images="./work/quantized_images"
 ocr_images="./work/ocr_images"
+rm -rf "$ocr_images"
 mkdir -p "$ocr_images"
 
 echo "[STEP 5] OCRing pages"
 cp "$quantized_images"/* "$ocr_images"
-parallel --bar -j 4 tesseract "{}" "{}" pdf ::: "$ocr_images"/*.png
+parallel --bar -j 8 tesseract "{}" "{}" pdf ::: "$ocr_images"/*.png

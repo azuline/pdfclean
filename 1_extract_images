@@ -5,6 +5,7 @@ set -euo pipefail
 # Step 1: Convert PDF to images.
 
 extracted_images="./work/extracted_images"
+rm -rf "$extracted_images"
 mkdir -p "$extracted_images"
 
 # Check if an input file was provided

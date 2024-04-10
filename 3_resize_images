@@ -6,6 +6,7 @@ set -euo pipefail
 
 cleaned_images="./work/cleaned_images"
 resized_images="./work/resized_images"
+rm -rf "$resized_images"
 mkdir -p "$resized_images"
 
 echo "[STEP 3] Resizing pages"
