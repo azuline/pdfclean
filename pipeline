@@ -18,6 +18,4 @@ starting_step="${2:-1}"
 [ "$starting_step" -lt 3 ] && ./2_clean_images
 [ "$starting_step" -lt 4 ] && ./3_resize_images
 [ "$starting_step" -lt 5 ] && ./4_quantize_images
-# Run ocrmypdf by hand afterwards... OCR takes too long when we are experimenting with the clean quality.
-# [ "$starting_step" -lt 6 ] && ./5_ocr_images
-[ "$starting_step" -lt 7 ] && ./6_merge_images
+[ "$starting_step" -lt 6 ] && ./5_merge_images

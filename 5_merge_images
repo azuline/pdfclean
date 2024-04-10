@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Step 5: Merge the cleaned PDFs back into a single file.
+
+quantized_images="./work/quantized_images"
+pdf_pages="./work/pdf_pages"
+merged_pdf="output.pdf"
+rm -rf "$pdf_pages"
+mkdir -p "$pdf_pages"
+
+echo "[STEP 5] Merging pages"
+echo "Converting PNG to PDF"
+parallel --bar -j 16 convert "{}" "$pdf_pages/{/.}.pdf" ::: "$quantized_images"/*.png
+echo "Assembling output PDF"
+pdfunite "$pdf_pages"/*.pdf "$merged_pdf"
