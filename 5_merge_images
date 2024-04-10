@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+RESOLUTION="${RESOLUTION:-1533x2525}"
+
 # Step 5: Merge the cleaned PDFs back into a single file.
 
 quantized_images="./work/quantized_images"
@@ -12,6 +14,6 @@ mkdir -p "$pdf_pages"
 
 echo "[STEP 5] Merging pages"
 echo "Converting PNG to PDF"
-parallel --bar -j 16 convert "{}" "$pdf_pages/{/.}.pdf" ::: "$quantized_images"/*.png
+parallel --bar -j 16 convert +repage -size "$RESOLUTION" -density 300 "{}" "$pdf_pages/{/.}.pdf" ::: "$quantized_images"/*.png
 echo "Assembling output PDF"
 pdfunite "$pdf_pages"/*.pdf "$merged_pdf"
