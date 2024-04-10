@@ -5,8 +5,7 @@ set -euo pipefail
 # Step 5: Merge the cleaned PDFs back into a single file.
 
 ocr_images="./work/ocr_images"
-merged_pdf="./work/merged_images/output.pdf"
-mkdir -p "./work/merged_images"
+merged_pdf="output.pdf"
 
-echo "[STEP 5] Merging pages"
+echo "[STEP 6] Merging pages"
 pdfunite "$ocr_images"/*.pdf "$merged_pdf"

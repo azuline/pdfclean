@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Step 4: Quantize images to black/white to save size.
+
+resized_images="./work/resized_images"
+quantized_images="./work/quantized_images"
+mkdir -p "$quantized_images"
+
+echo "[STEP 4] Quantizing images"
+parallel --bar -j 16 pngquant 2 "{}" -o "$quantized_images/{/}" ::: "$resized_images"/*.png

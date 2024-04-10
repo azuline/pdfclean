@@ -9,4 +9,4 @@ cleaned_images="./work/cleaned_images"
 mkdir -p "$cleaned_images"
 
 echo "[STEP 2] Cleaning pages"
-parallel --bar -j 16 ./textcleaner -g -e stretch -f 25 -u -s 1 "{}" "$cleaned_images/{/}" ::: "$extracted_images"/*.png
+parallel --bar -j 16 ./textcleaner -g -e stretch -f 25 -u -o 15 -t 30 -s 1 "{}" "$cleaned_images/{/}" ::: "$extracted_images"/*.png

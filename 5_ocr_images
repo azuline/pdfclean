@@ -4,10 +4,10 @@ set -euo pipefail
 
 # Step 4: OCR all images with tesseract.
 
-resized_images="./work/resized_images"
+quantized_images="./work/quantized_images"
 ocr_images="./work/ocr_images"
 mkdir -p "$ocr_images"
 
-echo "[STEP 4] OCRing pages"
-cp "$resized_images"/* "$ocr_images"
+echo "[STEP 5] OCRing pages"
+cp "$quantized_images"/* "$ocr_images"
 parallel --bar -j 4 tesseract "{}" "{}" pdf ::: "$ocr_images"/*.png
