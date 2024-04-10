@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+TEXTCLEANER="${TEXTCLEANER:--g -e stretch -f 15 -u -o 10 -t 10 -s 1}"
+
 # Step 2: Use textcleaner to clean the images and create PDFs.
 
 extracted_images="./work/extracted_images"
@@ -10,4 +12,4 @@ rm -rf "$cleaned_images"
 mkdir -p "$cleaned_images"
 
 echo "[STEP 2] Cleaning pages"
-parallel --bar -j 16 ./textcleaner -g -e stretch -f 15 -u -o 10 -t 10 -s 1 "{}" "$cleaned_images/{/}" ::: "$extracted_images"/*.png
+parallel --bar -j 16 ./textcleaner $TEXTCLEANER "{}" "$cleaned_images/{/}" ::: "$extracted_images"/*.png

@@ -5,9 +5,5 @@ params.
 Usage:
 
 ```
-./pipeline <input PDF> [<resume from step>]
+TEXTCLEANER="-g -e stretch" RESOLUTION="1533x2525" ./pipeline <input PDF> [<resume from step>]
 ```
-
-TODO:
-
-- Environment variables for textcleaner args and book dimensions.

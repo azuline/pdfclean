@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+RESOLUTION="${RESOLUTION:-1533x2525}"
+
 # Step 3: Resize all images to the same size.
 
 cleaned_images="./work/cleaned_images"
@@ -11,4 +13,4 @@ mkdir -p "$resized_images"
 
 echo "[STEP 3] Resizing pages"
 cp "$cleaned_images"/* "$resized_images"
-parallel --bar -j 16 mogrify -resize 1533x2525 -background white -gravity center -extent 1533x2525 ::: "$resized_images"/*.png
+parallel --bar -j 16 mogrify -resize "$RESOLUTION"  -background white -gravity center -extent "$RESOLUTION" ::: "$resized_images"/*.png
